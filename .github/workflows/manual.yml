@@ -1,4 +1,4 @@
-name: Run Test Example
+name: Mobile_Automation_Runner_Sanity
 
 on:
   workflow_dispatch:  # This allows you to trigger the workflow manually
