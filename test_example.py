@@ -13,20 +13,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 async def test_testsigma_login():
     """Test login to Testsigma application"""
 
-    chrome_path = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
-    user_data_dir = "/tmp/chrome-user-data-dir"
-    extension_path='/Users/yashaswi.singh/Downloads/build-chrome_staging_7.9.1'
-    extra_args = [
-        f'--user-data-dir={user_data_dir}',  # Fresh user data directory
-        f'--load-extension={extension_path}'
-    ]
-
-    browser = Browser(
-        config=BrowserConfig(
-            chrome_instance_path=chrome_path,
-            extra_chromium_args=extra_args
-        )
-    )
+    
 
     task = (
 
@@ -53,7 +40,7 @@ async def test_testsigma_login():
     )
 
 
-    agent = Agent(task, llm, use_vision=True,browser=browser)
+    agent = Agent(task, llm, use_vision=True)
     history = await agent.run()
     test_result = history.final_result()
 
