@@ -9,39 +9,6 @@ from browser_use.agent.views import ActionResult
 from browser_use.browser.browser import Browser, BrowserConfig
 from langchain_google_genai import ChatGoogleGenerativeAI
 
-class Controller:
-    def action(self, description):
-        def decorator(func):
-            return func
-        return decorator
-
-class ActionResult:
-    def __init__(self, extracted_content=None):
-        self.extracted_content = extracted_content
-
-# Define controller actions for steps 10 and 11
-
-controller = Controller()
-
-
-
-@controller.action('10. Click on record button')
-async def click_record_button_and_wait(page, button_locator: str, wait_time: int) -> ActionResult:
-    try:
-        # Find the record button and click it
-        record_button = await page.query_selector('//span[text()="Record"]')  # Use the appropriate locator
-        if record_button:
-            await record_button.click()
-            print("Clicked the record button.")
-
-        # Wait for the specified amount of time
-        await page.wait_for_timeout(wait_time * 1000)  # Playwright expects milliseconds
-
-        return ActionResult(extracted_content=f"Waited for {wait_time} seconds after clicking.")
-
-    except Exception as e:
-        print(f"Error occurred: {e}")
-        return ActionResult(extracted_content="Failed to perform the action.")
 
 @pytest.mark.asyncio
 async def test_testsigma_login():
