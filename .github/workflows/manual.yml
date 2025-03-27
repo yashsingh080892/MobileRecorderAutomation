@@ -21,6 +21,8 @@ jobs:
         python -m pip install --upgrade pip
         pip install pytest  # Explicitly install pytest
         pip install browser_use
+        pip install langchain_google_genai
+
 
     - name: Run test_example.py
       run: |
