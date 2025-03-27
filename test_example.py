@@ -1,7 +1,6 @@
 import os
 from xml.dom.xmlbuilder import Options
 
-import controller
 import pytest
 import asyncio
 from browser_use.agent.service import Agent
