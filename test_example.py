@@ -59,3 +59,5 @@ async def test_testsigma_login():
 
     # Add assertions based on what final_result() returns
     assert test_result is not None, "Test result should not be None"
+    print("Test Successful...........")
+
