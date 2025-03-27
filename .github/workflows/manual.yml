@@ -1,32 +1,26 @@
-# This is a basic workflow that is manually triggered
+name: Run Test Example
 
-name: Manual workflow
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
-  workflow_dispatch:
-    # Inputs the workflow accepts.
-    inputs:
-      name:
-        # Friendly description to be shown in the UI instead of 'name'
-        description: 'Person to greet'
-        # Default value if no value is explicitly provided
-        default: 'World'
-        # Input has to be provided for the workflow to run
-        required: true
-        # The data type of the input
-        type: string
+  workflow_dispatch:  # This allows you to trigger the workflow manually
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
-  greet:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+  run-python-script:
+    runs-on: macos-latest  # Specify macOS runner instead of Ubuntu
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ inputs.name }}"
+    - name: Check out repository
+      uses: actions/checkout@v2  # This checks out your repository to the GitHub runner
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.13'  # Specify the Python version you want to use
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt  # Install dependencies from requirements.txt if you have one
+
+    - name: Run test_example.py
+      run: |
+        python test_example.py  # Run the Python script
