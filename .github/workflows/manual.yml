@@ -27,6 +27,9 @@ jobs:
         pip install pytest-tornasync
         pip install pytest-trio
         pip install pytest-twisted
+        pip install twisted
+
+
 
 
     - name: Run test_example.py
