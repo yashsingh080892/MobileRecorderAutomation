@@ -16,11 +16,6 @@ jobs:
       with:
         python-version: '3.13'  # Specify the Python version you want to use
 
-    - name: Install dependencies
-      run: |
-        python -m pip3.13 install --upgrade pip3.13
-        pip3.13 install -r requirements.txt  # Install dependencies from requirements.txt if you have one
-
     - name: Run test_example.py
       run: |
         python test_example.py  # Run the Python script
