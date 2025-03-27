@@ -26,4 +26,4 @@ jobs:
 
     - name: Run test_example.py
       run: |
-        python test_example.py  # Run the Python script
+        pytest -v -s test_example.py # Run the Python script
