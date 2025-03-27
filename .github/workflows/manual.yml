@@ -22,6 +22,11 @@ jobs:
         pip install pytest  # Explicitly install pytest
         pip install browser_use
         pip install langchain_google_genai
+        pip install anyio
+        pip install pytest-asyncio
+        pip install pytest-tornasync
+        pip install pytest-trio
+        pip install pytest-twisted
 
 
     - name: Run test_example.py
