@@ -28,7 +28,7 @@ jobs:
         pip install pytest-trio
         pip install pytest-twisted
         pip install twisted
-        pip install playwright
+        playwright install
 
 
 
